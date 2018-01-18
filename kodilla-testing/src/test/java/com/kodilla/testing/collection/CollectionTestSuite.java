@@ -1,6 +1,7 @@
 package com.kodilla.testing.collection;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,6 +21,7 @@ public class CollectionTestSuite {
     ArrayList <Integer> numbers = new ArrayList<Integer>();
 
     int result = odd.exterminate(numbers);
+    Assert.assertEquals(0, result);
     System.out.println("Brak liczb na liscie");
 }
 @Test
@@ -37,9 +39,9 @@ public class CollectionTestSuite {
     numbers.add(43);
 
     int result = odd.exterminate(numbers);
-    if (result == 2) {
-        System.out.println("Test Normal List OK"); }
-        else {
-        System.out.println("Test Normal List not OK"); }
+    int exp = 2;
+    Assert.assertEquals(exp, result);
+    System.out.println("Test Normal List OK");
+
 }
 }
