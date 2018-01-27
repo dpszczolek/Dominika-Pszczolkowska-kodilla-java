@@ -1,14 +1,10 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.DifferentBeautifiers;
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.lambda.ExecuteExpression;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.iterate.NumbersGenerator;
 
 public class StreamMain {
     public static void main(String[] args) {
-        Processor processor = new Processor();
+ /*       Processor processor = new Processor();
         processor.execute(() -> System.out.println("This is an example text."));
 
         ExecuteExpression expressionExecutor = new ExecuteExpression();
@@ -36,6 +32,9 @@ public class StreamMain {
         poemBeautifier.beautify(s, DifferentBeautifiers::abcAdd);
         poemBeautifier.beautify(s, DifferentBeautifiers::capitalics);
         poemBeautifier.beautify(s, DifferentBeautifiers::lowEToUpCaseA);
-        poemBeautifier.beautify(s, DifferentBeautifiers::splitedText);
+        poemBeautifier.beautify(s, DifferentBeautifiers::splitedText); */
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
     }
 }
