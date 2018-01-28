@@ -1,11 +1,5 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.forumuser.Forum;
-import com.kodilla.stream.forumuser.ForumUser;
-
-import java.util.Map;
-import java.util.stream.Collectors;
-
 public class StreamMain {
     public static void main(String[] args) {
  /*       BookDirectory theBookDirectory = new BookDirectory();
@@ -14,7 +8,7 @@ public class StreamMain {
                 .map(Book::toString)
                 .collect(Collectors.joining(",\n","<<",">>"));
 
-        System.out.println(theResultStringOfBooks); */
+        System.out.println(theResultStringOfBooks);
 
         Forum forum = new Forum ();
 
@@ -29,6 +23,8 @@ public class StreamMain {
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
 
-    }
+    } */
+        System.out.println("OK");
 
+    }
 }

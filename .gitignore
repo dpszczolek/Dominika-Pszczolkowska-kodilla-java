@@ -1,10 +1,11 @@
 .gradle
 /build/
 /out/
-/out/production
-/out
+/kodilla-testing/out
+/kodilla-stream/out
 /target
-/build
+/kodilla-testing/build
+/kodilla-stream/build
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
