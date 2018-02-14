@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 
 public class FindFlight {
 
-    public Map<Integer, Flights> getMapOfFlights() {
+    private Map<Integer, Flights> getMapOfFlights() {
+
         Map<Integer, Flights> flights = new HashMap<>();
 
         Flights f1 = new Flights(new Airports("Warsaw"), new Airports("Oslo"));
@@ -25,47 +26,27 @@ public class FindFlight {
         return flights;
     }
 
-    public static void main(String[] args) {
-
-        Airports port1 = new Airports("Warsaw");
-        Airports port2 = new Airports("Porto");
-        Airports port3 = new Airports("Paris");
-
-        FindFlight findFlight = new FindFlight();
-
-        List<Airports> listOfArrivalAirports = findFlight.getMapOfFlights().values().stream()
-                .filter(city -> city.departureAirport.equals(port1))
+    public List<Airports> listOfArrivalAirports (Airports departurePort) {
+        System.out.println("From " + departurePort + " you can fly to ");
+        return getMapOfFlights().values().stream()
+                .filter(city -> city.getDepartureAirport().equals(departurePort))
                 .map(city -> city.arrivalAirport)
                 .collect(Collectors.toList());
+    }
 
-        if (listOfArrivalAirports == null) {
-            System.out.println("There are no flights from " + port1);
-        } else {
-            System.out.println("From " + port1 + " you can fly to " + listOfArrivalAirports);
-        }
-
-        List<Airports> listOfDepartureAirports = findFlight.getMapOfFlights().values().stream()
-                .filter(city -> city.arrivalAirport.equals(port2))
+    public List<Airports> listOfDepartureAirports (Airports arrivalPort) {
+        System.out.println("To " + arrivalPort + " you can fly from ");
+        return getMapOfFlights().values().stream()
+                .filter(city -> city.getArrivalAirport().equals(arrivalPort))
                 .map(city -> city.departureAirport)
                 .collect(Collectors.toList());
+    }
 
-        if (listOfDepartureAirports == null) {
-            System.out.println("There are no flights to " + port2);
-        } else {
-            System.out.println("To " + port2 + " you can fly from " + listOfDepartureAirports);
-        }
-
-        List<Airports> listOfViaAirports = findFlight.getMapOfFlights().values().stream()
-                .filter(city -> city.departureAirport.equals(port1) || city.arrivalAirport.equals(port2))
-                .filter(city -> city.arrivalAirport.equals(port3))
-                .map(city -> city.arrivalAirport)
-                .collect(Collectors.toList());
-
-        if (listOfViaAirports == null) {
-            System.out.println("There is no possible flight via " + port3);
-        } else {
-            System.out.println("You can fly to " + port2 + " from " + port1 + " via " + listOfViaAirports);
-        }
-
+    public List<Airports> listOfViaAirports (Airports departurePort, Airports viaPort, Airports arrivalPort) {
+        System.out.println("You can fly to " + arrivalPort + " from " + departurePort + " via ");
+        return getMapOfFlights().values().stream()
+            .filter(city -> city.getDepartureAirport().equals(departurePort) && city.getArrivalAirport().equals(viaPort) || city.getDepartureAirport().equals(viaPort) && city.getArrivalAirport().equals(arrivalPort))
+            .map(city -> city.arrivalAirport)
+            .collect(Collectors.toList());
     }
 }

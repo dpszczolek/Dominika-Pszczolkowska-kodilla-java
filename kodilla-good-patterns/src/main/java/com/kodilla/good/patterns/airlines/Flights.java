@@ -35,9 +35,6 @@ public class Flights {
 
     @Override
     public String toString() {
-        return "Flights{" +
-                "departureAirport=" + departureAirport +
-                ", arrivalAirport=" + arrivalAirport +
-                '}';
+        return departureAirport + " to " + arrivalAirport;
     }
 }
