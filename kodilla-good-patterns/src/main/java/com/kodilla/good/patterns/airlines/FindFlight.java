@@ -47,6 +47,7 @@ public class FindFlight {
         return getMapOfFlights().stream()
             .filter(city -> city.getDepartureAirport().equals(departurePort) && city.getArrivalAirport().equals(viaPort) || city.getDepartureAirport().equals(viaPort) && city.getArrivalAirport().equals(arrivalPort))
             .map(city -> city.arrivalAirport)
+            .filter(city -> !arrivalPort.equals(city))
             .collect(Collectors.toList());
     }
 }

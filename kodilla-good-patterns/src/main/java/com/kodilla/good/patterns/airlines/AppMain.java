@@ -9,8 +9,8 @@ public class AppMain {
 
         FindFlight findFlight = new FindFlight();
 
-        findFlight.listOfArrivalAirports(departurePort);
-        findFlight.listOfDepartureAirports(arrivalPort);
-        findFlight.listOfViaAirports(departurePort, viaPort, arrivalPort);
+        System.out.println(findFlight.listOfArrivalAirports(departurePort));
+        System.out.println(findFlight.listOfDepartureAirports(arrivalPort));
+        System.out.println(findFlight.listOfViaAirports(departurePort, viaPort, arrivalPort));
     }
 }
