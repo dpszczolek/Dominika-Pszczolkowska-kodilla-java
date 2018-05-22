@@ -35,11 +35,11 @@ class ForumStats {
     }
 
    public void showStatistics () {
-        System.out.println("Number of users is " + numberOfUsers());
-        System.out.println("Number of posts is " + numberOfPosts());
-        System.out.println("Number of comments is " + numberOfComments());
-        System.out.println("Average number of posts per user is " + avgPostsPerUser());
-        System.out.println("Average number of comments per user is " + avgCommentsPerUser());
-        System.out.println("Average number of comments per post is " + avgCommentsPerPost());
+       System.out.println("Number of Users: " + numberOfUsers()
+               + "\n" + "Number of Posts: " + numberOfPosts()
+               + "\n" + "Number of Comments: " + numberOfComments()
+               + "\n" + "Average number of posts per user: " + avgPostsPerUser()
+               + "\n" + "Average number of comments per user: " + avgCommentsPerUser()
+               + "\n" + "Average number of comments per post: " + avgCommentsPerPost());
     }
 }

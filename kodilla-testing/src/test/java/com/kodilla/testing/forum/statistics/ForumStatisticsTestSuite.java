@@ -11,6 +11,7 @@ import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+
 public class ForumStatisticsTestSuite {
     @Before
     public void beforeTest () {
@@ -75,10 +76,9 @@ public class ForumStatisticsTestSuite {
 
         ForumStats fs = new ForumStats(statisticsMock);
         fs.calculateAdvStatistics(statisticsMock);
-        double commentsPerPost = commentsCount/postsCount;
-        double avgCommentsPerPost = fs.numberOfComments()/fs.numberOfPosts();
+        double avgCommentsPerPost = fs.avgCommentsPerPost();
 
-        Assert.assertEquals(commentsPerPost, avgCommentsPerPost, 0);
+        Assert.assertEquals(0.01, avgCommentsPerPost, 0);
     }
     @Test
     public void testPostsLessThanComments () {
@@ -96,10 +96,10 @@ public class ForumStatisticsTestSuite {
 
         ForumStats fs = new ForumStats(statisticsMock);
         fs.calculateAdvStatistics(statisticsMock);
-        double commentsPerPost = commentsCount/postsCount;
-        double avgCommentsPerPost = fs.numberOfComments()/fs.numberOfPosts();
 
-        Assert.assertEquals(commentsPerPost, avgCommentsPerPost, 0);
+        double avgCommentsPerPost = fs.avgCommentsPerPost();
+
+        Assert.assertEquals(10, avgCommentsPerPost, 0);
     }
     @Test
     public void testZeroUsers () {
